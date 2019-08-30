@@ -10,7 +10,7 @@ public class Board_Setup : MonoBehaviour
 
     private void Start()
     {
-        GameObject[,] TileMatrix = new GameObject[5,5]; // change here if you want to change the size of the board!
+        GameObject[,] TileMatrix = new GameObject[5,5]; //change here if you want to change the size of the board!
         InstatiateTiles(TileMatrix);
     }
 
@@ -22,7 +22,6 @@ public class Board_Setup : MonoBehaviour
         foreach (var cor in ArrayOfTiles)
         {
             Copy = Instantiate(tile, new Vector3(CurrentRow, 0, CurrentCol),Quaternion.identity.normalized,gameObject.transform);
-
             CurrentCol++;
 
             if (CurrentCol >= ArrayOfTiles.GetLength(0))
@@ -34,8 +33,6 @@ public class Board_Setup : MonoBehaviour
             {
                 CurrentRow = 0;
             }
-
-
         }
     }
 }

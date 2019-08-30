@@ -63,7 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Board_Setup.cs" />
+    <Compile Include="Assets\Scripts\BuildingManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
+    <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\TowerLogic.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/Documents/GitHub/TowerDefense/TowerDefenseProject/TowerDefense/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
