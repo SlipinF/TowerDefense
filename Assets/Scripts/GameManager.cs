@@ -13,14 +13,13 @@ public class GameManager : MonoBehaviour
     public Camera gameCamera;
 
     public event Action<GameObject,GameObject> BuildEvent;
-
+    public event Action<TowerLogic> PayEvent;
     [SerializeField]
     GameObject tower;
 
     private void Start()
     {
         currentState = GameState.Default;
-
     }
 
 
@@ -44,12 +43,19 @@ public class GameManager : MonoBehaviour
 
         public void SetObjectTo()
         {
+            SetGameState(GameState.Building);
             CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+        }
+
+        public static void SetGameState(GameState state)
+        {
+            currentState = state;
         }
 
     public void OnBuildMethod(GameObject Tile)
     {
         BuildEvent?.Invoke(CopyobjectToBuild,Tile);
+        PayEvent?.Invoke(CopyobjectToBuild.GetComponent<TowerLogic>());
         CopyobjectToBuild = null;
     } 
 

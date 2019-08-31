@@ -9,8 +9,6 @@ public class BuildingManager : MonoBehaviour
         FindObjectOfType<GameManager>().BuildEvent += Build;
     }
 
-
-
     void Build(GameObject Tower,GameObject Tile)
     {
         if(Tower != null)
