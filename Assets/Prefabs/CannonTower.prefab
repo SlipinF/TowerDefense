@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4529618078750124524}
   - component: {fileID: 5225697176301420089}
   m_Layer: 2
-  m_Name: TowerPlaceHolder
+  m_Name: CannonTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8ec020682da1cc944af325c51fcea7be, type: 2}
+  - {fileID: 2100000, guid: f38d977fed2cb424cb26ffbffa8d854c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,4 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2351c1e8b1947d64592e40983e46f26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerType: {fileID: 11400000, guid: a90825d87cba81b48ac7b9d4651b6898, type: 2}
+  towerType: {fileID: 11400000, guid: 6d39a13dc2d7574498620b0707c2868a, type: 2}

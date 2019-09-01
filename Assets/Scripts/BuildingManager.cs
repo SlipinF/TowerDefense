@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    void Start()
-    {
+    void Start(){
         FindObjectOfType<GameManager>().BuildEvent += Build;
     }
 
-    void Build(GameObject Tower,GameObject Tile)
-    {
-        if(Tower != null)
-        {
+    void Build(GameObject Tower,GameObject Tile){
+        if(Tower != null){
          Tower.transform.position = Tile.transform.position;
         }
     }

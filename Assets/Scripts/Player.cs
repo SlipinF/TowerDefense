@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
-    int health = 100;
-    int gold = 100;
-    int level = 1;
+    public event Action<int> PayEvent;
+
+
+    public  static int health = 100;
+    public static int gold = 100;
+    public static int level = 1;
 
     private Tower tower;
 
@@ -15,12 +19,10 @@ public class Player : MonoBehaviour
     }
 
 
-    void Pay(GameObject Tower, GameObject Tile){
+    void Pay(GameObject Tower, GameObject Tile){       
+            tower = (Tower)Tower.GetComponent<TowerLogic>().towerType;
 
-        tower = (Tower)Tower.GetComponent<TowerLogic>().towerType;
-
-        gold -= tower.cost;
-
-        Debug.Log("Money Left : " + gold);
+            gold -= tower.cost;
+            PayEvent?.Invoke(gold);
     }
 }

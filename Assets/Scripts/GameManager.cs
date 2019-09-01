@@ -4,8 +4,7 @@ using UnityEngine;
 using System;
 public enum GameState{Default,Building}
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour{
 
     public static GameState currentState;
     public static GameObject objectToBuild;
@@ -13,24 +12,20 @@ public class GameManager : MonoBehaviour
     public Camera gameCamera;
 
     public event Action<GameObject,GameObject> BuildEvent;
-    public event Action<TowerLogic> PayEvent;
+
     [SerializeField]
     GameObject tower;
 
-    private void Start()
-    {
+    private void Start(){
         currentState = GameState.Default;
     }
 
 
-    private void Update()
-    {
-        if(CopyobjectToBuild == null)
-        {
+    private void Update(){
+        if(CopyobjectToBuild == null){
             return;
         }
-        else
-        {
+        else{
             RaycastHit hit;
             Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -41,23 +36,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        public void SetObjectTo()
-        {
+        public void SetObjectTo(GameObject tower){
             SetGameState(GameState.Building);
             CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
         }
 
-        public static void SetGameState(GameState state)
-        {
+        public static void SetGameState(GameState state){
             currentState = state;
         }
 
-    public void OnBuildMethod(GameObject Tile)
-    {
-        BuildEvent?.Invoke(CopyobjectToBuild,Tile);
-        PayEvent?.Invoke(CopyobjectToBuild.GetComponent<TowerLogic>());
-        CopyobjectToBuild = null;
-    } 
+         public void OnBuildMethod(GameObject Tile){
+          BuildEvent?.Invoke(CopyobjectToBuild,Tile);
+          CopyobjectToBuild = null;
+         } 
 
 
 }
