@@ -15,7 +15,7 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<Player>().PayEvent += SetGoldAmount;
+        FindObjectOfType<BuySellScript>().PayEvent += SetGoldAmount;
         goldAmount.text = Player.gold.ToString();
     }
 
@@ -38,5 +38,9 @@ public class UiManager : MonoBehaviour
                 towerButtons[i].interactable = true;
             }
         }
+    }
+    public void SellButtonLogic()
+    {
+     GameManager.SetGameState(GameState.Selling);
     }
 }

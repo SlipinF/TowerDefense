@@ -23,6 +23,16 @@ public class Tile : MonoBehaviour
                 isTileTaken = true;
             }
         }
+
+        if(isTileTaken && GameManager.currentState == GameState.Selling)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                FindObjectOfType<GameManager>().OnSellMethod(this.gameObject);
+                GameManager.SetGameState(GameState.Default);
+                isTileTaken = false;
+            }
+        }
     }
 
     private void OnMouseExit()

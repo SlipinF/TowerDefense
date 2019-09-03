@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public enum GameState{Default,Building}
+public enum GameState{Default,Building,Selling}
 
 public class GameManager : MonoBehaviour{
 
@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour{
     public Camera gameCamera;
 
     public event Action<GameObject,GameObject> BuildEvent;
+    public event Action<GameObject> SellEvent;
 
     [SerializeField]
     GameObject tower;
@@ -49,6 +50,10 @@ public class GameManager : MonoBehaviour{
           BuildEvent?.Invoke(CopyobjectToBuild,Tile);
           CopyobjectToBuild = null;
          } 
+
+        public void OnSellMethod(GameObject Tile){
+            SellEvent?.Invoke(Tile);
+        }
 
 
 }
