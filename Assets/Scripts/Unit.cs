@@ -8,6 +8,8 @@ public class Unit : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject finishPoint;
 
+    UnitObject unitDescirption;
+
 
     void Update()
     {
