@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour{
 
     public event Action<GameObject,GameObject> BuildEvent;
     public event Action<GameObject> SellEvent;
+    public event Action<int> KillEvent;
 
     [SerializeField]
     GameObject tower;
 
     private void Start(){
         currentState = GameState.Default;
+
     }
 
 
@@ -54,6 +56,13 @@ public class GameManager : MonoBehaviour{
         public void OnSellMethod(GameObject Tile){
             SellEvent?.Invoke(Tile);
         }
+        
+        public void OnKillMethod(GameObject unit)
+        {
+            int amount = unit.GetComponent<Unit>().unitDescirption.goldRevarde;
+        KillEvent?.Invoke(amount);
+
+    }
 
 
 }

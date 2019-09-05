@@ -18,3 +18,4 @@ MonoBehaviour:
   attackDamage: 10
   health: 100
   cost: 10
+  range: 10

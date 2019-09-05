@@ -17,6 +17,7 @@ public class UiManager : MonoBehaviour
     {
         FindObjectOfType<BuySellScript>().PayEvent += SetGoldAmount;
         goldAmount.text = Player.gold.ToString();
+
     }
 
     void SetGoldAmount(int gold)

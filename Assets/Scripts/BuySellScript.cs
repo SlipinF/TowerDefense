@@ -12,6 +12,7 @@ public class BuySellScript : MonoBehaviour
     {
         FindObjectOfType<GameManager>().BuildEvent += PayGold;
         FindObjectOfType<GameManager>().SellEvent += ReciveGold;
+        FindObjectOfType<GameManager>().KillEvent += ReciveGoldFromKill;
     }
 
 
@@ -25,5 +26,9 @@ public class BuySellScript : MonoBehaviour
     {
         tower = (Tower)Tile.transform.GetChild(0).GetComponent<TowerLogic>().towerType;
         PayEvent?.Invoke(Player.ChangeGold(tower.cost, true));
+    }
+    void ReciveGoldFromKill(int amount)
+    {
+        PayEvent?.Invoke(Player.ChangeGold(amount, true));
     }
 }

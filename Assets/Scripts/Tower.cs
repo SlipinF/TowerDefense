@@ -14,4 +14,5 @@ public class Tower : ScriptableObject
     public int attackDamage;
     public int health;
     public int cost;
+    public int range;
 }
