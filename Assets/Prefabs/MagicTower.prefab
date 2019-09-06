@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerType: {fileID: 11400000, guid: c447313823efa3d44854e6592c84997a, type: 2}
-  bullet: {fileID: 2147353318061279956, guid: db1950b50faf4b74a8096fc60938c842, type: 3}
+  bullet: {fileID: 2147353318061279956, guid: 1f1db8e60439a1e4bad0d566aedc72b3, type: 3}
 --- !u!208 &4723846025040593826
 NavMeshObstacle:
   m_ObjectHideFlags: 0
