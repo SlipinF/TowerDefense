@@ -19,7 +19,7 @@ public class Tile : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.red;
             else
             {
-            gameObject.GetComponent<Renderer>().material.color = currentColor;
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && isTileTaken == false)

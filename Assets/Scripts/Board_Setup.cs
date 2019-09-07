@@ -13,7 +13,6 @@ public class Board_Setup : MonoBehaviour
         GameObject[,] TileMatrix = new GameObject[10,10]; //change here if you want to change the size of the board!
         InstatiateTiles(TileMatrix);
     }
-
     void InstatiateTiles(GameObject[,] ArrayOfTiles)
     {
         int CurrentRow = 0;

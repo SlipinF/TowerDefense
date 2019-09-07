@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour{
     GameObject tower;
 
     private void Start(){
-        currentState = GameState.Default;
+    currentState = GameState.Default;
+    StartCoroutine(BeginGame());
+    StartCoroutine(StartCounter());
 
     }
-
-
     private void Update(){
         if(CopyobjectToBuild == null){
             return;
@@ -39,6 +39,20 @@ public class GameManager : MonoBehaviour{
         }
     }
 
+        IEnumerator BeginGame()
+        {
+        yield return new WaitForSeconds(21);
+        FindObjectOfType<SpawnManager>().OnGameBegon();
+        }   
+        IEnumerator StartCounter()
+        {
+        for (int i = 0; i < 21; i++)
+        {
+            yield return new WaitForSeconds(1);
+            FindObjectOfType<UiManager>().TimerCountDown();
+        }
+        }
+
         public void SetObjectTo(GameObject tower){
             SetGameState(GameState.Building);
             CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
@@ -49,8 +63,8 @@ public class GameManager : MonoBehaviour{
         }
 
          public void OnBuildMethod(GameObject Tile){
-          CopyobjectToBuild.GetComponent<TowerLogic>().BeginLogic();
           BuildEvent?.Invoke(CopyobjectToBuild,Tile);
+          CopyobjectToBuild.GetComponent<TowerLogic>().BeginLogic();
           CopyobjectToBuild = null;
          } 
 
@@ -60,9 +74,8 @@ public class GameManager : MonoBehaviour{
         
         public void OnKillMethod(GameObject unit)
         {
-            int amount = unit.GetComponent<Unit>().unitDescirption.goldRevarde;
+        int amount = unit.GetComponent<Unit>().unitDescirption.goldRevarde;
         KillEvent?.Invoke(amount);
-
     }
 
 

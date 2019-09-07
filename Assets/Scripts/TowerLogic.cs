@@ -6,19 +6,25 @@ using System;
 public class TowerLogic : MonoBehaviour
 {       
     public Tower towerType;
-
-
     GameObject unitToShootAt;
     public GameObject bullet;
     GameObject copy;
 
+  
+
     public void BeginLogic()
     {
         FindObjectOfType<SpawnManager>().OnSpawnEvent += ChooseUnitToShoot;
-        ChooseUnitToShoot();
         StartCoroutine(Shoot());
     }
+    void Update()
+    {
+        if(unitToShootAt == null)
+        {
+         ChooseUnitToShoot();
+        }
 
+    }
 
     IEnumerator Shoot()
     {
@@ -34,21 +40,26 @@ public class TowerLogic : MonoBehaviour
     void ChooseUnitToShoot()
     {
         int counter = 0;
-        GameObject[] testArray = new GameObject[FindObjectOfType<SpawnManager>().spawnedUnits.Count];
-        foreach (var unit in FindObjectOfType<SpawnManager>().spawnedUnits)
-        {       
-            if(Vector3.Distance(this.transform.position, unit.transform.position) <= towerType.range)
-            {
-                testArray[counter++] = unit;
-            }
-        }
 
-        unitToShootAt = testArray[UnityEngine.Random.Range(0, testArray.Length)];
-
-        if (unitToShootAt != null)
+        if(FindObjectOfType<SpawnManager>().spawnedUnits.Count > 0)
         {
-          unitToShootAt.GetComponent<Unit>().OnDeathEvent += ChooseUnitToShoot;
-        }
+            GameObject[] testArray = new GameObject[FindObjectOfType<SpawnManager>().spawnedUnits.Count];
+
+            foreach (var unit in FindObjectOfType<SpawnManager>().spawnedUnits)
+            {
+                if (Vector3.Distance(this.transform.position, unit.transform.position) <= towerType.range)
+                {
+                    testArray[counter++] = unit;
+                }
+            }
+
+            if (unitToShootAt != null)
+            {
+                unitToShootAt.GetComponent<Unit>().OnDeathEvent += ChooseUnitToShoot;
+            }
+
+            unitToShootAt = testArray[UnityEngine.Random.Range(0, testArray.Length)];
+        }       
     }
 
     public bool IsEnemyTrue()

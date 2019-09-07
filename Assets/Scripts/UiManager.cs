@@ -13,10 +13,15 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI goldAmount;
 
+    [SerializeField]
+    TextMeshProUGUI timer;
+    int counter = 20;
+
     void Start()
     {
         FindObjectOfType<BuySellScript>().PayEvent += SetGoldAmount;
         goldAmount.text = Player.gold.ToString();
+        timer.text = counter.ToString();
 
     }
 
@@ -40,6 +45,12 @@ public class UiManager : MonoBehaviour
             }
         }
     }
+   public void TimerCountDown()
+    {
+       timer.text = counter--.ToString();
+    }
+
+
     public void SellButtonLogic()
     {
      GameManager.SetGameState(GameState.Selling);

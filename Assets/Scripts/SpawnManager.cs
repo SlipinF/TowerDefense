@@ -10,25 +10,25 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject[] unitsToSpawn;
 
+    [SerializeField]
+    LevelObject[] arrayOfLevels;
+
     public List<GameObject> spawnedUnits;
-    int waveNr;
     public GameObject startPoint;
     GameObject copy;
+    int currentLevel = 1;
 
-
-    private void Update()
+    public void OnGameBegon()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            SpawnWave();
-            OnSpawnEvent?.Invoke();
-        }
+        StartCoroutine(SpawnWave());
+        OnSpawnEvent?.Invoke();
     }
 
-    void SpawnWave()
+    IEnumerator SpawnWave()
     {
-        foreach (var unit in unitsToSpawn)
-        {         
+        foreach (var unit in arrayOfLevels[currentLevel].enemies)
+        {
+            yield return new WaitForSecondsRealtime(0.5f);
             copy = Instantiate(unit, startPoint.transform.position, Quaternion.identity);
             spawnedUnits.Add(copy);
         }
@@ -38,6 +38,4 @@ public class SpawnManager : MonoBehaviour
     {
        spawnedUnits.Remove(unit);
     }
-
-
 }
