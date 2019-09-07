@@ -7,15 +7,18 @@ public class TowerLogic : MonoBehaviour
 {       
     public Tower towerType;
 
+
     GameObject unitToShootAt;
     public GameObject bullet;
     GameObject copy;
 
-    private void Start()
+    public void BeginLogic()
     {
         FindObjectOfType<SpawnManager>().OnSpawnEvent += ChooseUnitToShoot;
+        ChooseUnitToShoot();
         StartCoroutine(Shoot());
     }
+
 
     IEnumerator Shoot()
     {

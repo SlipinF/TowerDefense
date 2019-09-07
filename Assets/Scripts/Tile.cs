@@ -5,6 +5,12 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     bool isTileTaken;
+    Color currentColor;
+
+    private void Start()
+    {
+        currentColor = gameObject.GetComponent<Renderer>().material.color;
+    }
 
     private void OnMouseOver(){
         if (GameManager.currentState == GameState.Building)
@@ -13,7 +19,7 @@ public class Tile : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.red;
             else
             {
-            gameObject.GetComponent<Renderer>().material.color = Color.green;
+            gameObject.GetComponent<Renderer>().material.color = currentColor;
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && isTileTaken == false)
@@ -37,6 +43,6 @@ public class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
-        gameObject.GetComponent<Renderer>().material.color = Color.white;
+        gameObject.GetComponent<Renderer>().material.color = currentColor;
     }
 }

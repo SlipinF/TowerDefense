@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour{
         }
 
          public void OnBuildMethod(GameObject Tile){
+          CopyobjectToBuild.GetComponent<TowerLogic>().BeginLogic();
           BuildEvent?.Invoke(CopyobjectToBuild,Tile);
           CopyobjectToBuild = null;
          } 
