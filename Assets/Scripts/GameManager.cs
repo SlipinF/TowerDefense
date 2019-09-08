@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour{
     public event Action<GameObject,GameObject> BuildEvent;
     public event Action<GameObject> SellEvent;
     public event Action<int> KillEvent;
+    public event Action OnRoundEndEvent;
 
     [SerializeField]
     GameObject tower;
@@ -51,8 +52,9 @@ public class GameManager : MonoBehaviour{
             yield return new WaitForSeconds(1);
             FindObjectOfType<UiManager>().TimerCountDown();
         }
-        }
 
+
+        }
         public void SetObjectTo(GameObject tower){
             SetGameState(GameState.Building);
             CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);

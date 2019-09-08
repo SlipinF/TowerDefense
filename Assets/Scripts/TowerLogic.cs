@@ -17,6 +17,7 @@ public class TowerLogic : MonoBehaviour
         FindObjectOfType<SpawnManager>().OnSpawnEvent += ChooseUnitToShoot;
         StartCoroutine(Shoot());
     }
+
     void Update()
     {
         if(unitToShootAt == null)

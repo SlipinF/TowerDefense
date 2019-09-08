@@ -17,8 +17,7 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    void DestroyTower(GameObject Tile)
-    {
+    void DestroyTower(GameObject Tile){
         if(Tile != null){
          Destroy(Tile.transform.GetChild(0).gameObject);
         }
