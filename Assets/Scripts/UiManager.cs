@@ -12,17 +12,19 @@ public class UiManager : MonoBehaviour
     Tower[] towers;
     [SerializeField]
     TextMeshProUGUI goldAmount;
+    [SerializeField]
+    GameObject endScreen;
 
     [SerializeField]
     TextMeshProUGUI timer;
-    int counter = 20;
+    public int counter = 20;
 
     void Start()
     {
         FindObjectOfType<BuySellScript>().PayEvent += SetGoldAmount;
         goldAmount.text = Player.gold.ToString();
         timer.text = counter.ToString();
-
+        FindObjectOfType<SpawnManager>().OnLastRoundFinished += DisplayEndScreen;
     }
 
     void SetGoldAmount(int gold)
@@ -46,8 +48,14 @@ public class UiManager : MonoBehaviour
         }
     }
    public void TimerCountDown()
-    {
+   {
        timer.text = counter--.ToString();
+   }
+
+    void DisplayEndScreen(){
+
+        Time.timeScale = 0;
+        endScreen.SetActive(true);
     }
 
 

@@ -6,6 +6,7 @@ using System;
 public class SpawnManager : MonoBehaviour
 {
     public event Action OnSpawnEvent;
+    public event Action OnLastRoundFinished;
 
     [SerializeField]
     GameObject[] unitsToSpawn;
@@ -22,7 +23,12 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(SpawnWave());
         OnSpawnEvent?.Invoke();
+        FindObjectOfType<GameManager>().OnRoundEndEvent += EnumarateVariables;
     }
+    public void InicializeSpawnWave(){
+     StartCoroutine(SpawnWave());
+    }
+
 
     IEnumerator SpawnWave()
     {
@@ -34,6 +40,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    void EnumarateVariables(){
+        currentLevel++;
+        if(currentLevel > arrayOfLevels.Length){
+          OnLastRoundFinished?.Invoke();
+        }
+    }
     public void RemoveDeadUnitFromList(GameObject unit)
     {
        spawnedUnits.Remove(unit);

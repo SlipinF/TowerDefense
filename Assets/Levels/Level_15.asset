@@ -14,13 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Level_15
   enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1179781727562504127, guid: 5fe1a050d38c3584d80f48595a5104b0, type: 3}

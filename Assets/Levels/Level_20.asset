@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Level_20
   enemies:
-  - {fileID: 0}
+  - {fileID: 1179781727562504127, guid: d4ff5591d2da46240a674f40f4b409bf, type: 3}

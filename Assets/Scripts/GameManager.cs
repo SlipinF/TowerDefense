@@ -38,23 +38,43 @@ public class GameManager : MonoBehaviour{
                 CopyobjectToBuild.transform.position = new Vector3(hit.point.x,0, hit.point.z);
             }
         }
+
+
+
     }
 
         IEnumerator BeginGame()
         {
         yield return new WaitForSeconds(21);
         FindObjectOfType<SpawnManager>().OnGameBegon();
-        }   
-        IEnumerator StartCounter()
+        }
+
+        IEnumerator ContinueGame()
+        {
+        yield return new WaitForSeconds(21);
+        FindObjectOfType<SpawnManager>().InicializeSpawnWave();
+        }
+
+
+    IEnumerator StartCounter()
         {
         for (int i = 0; i < 21; i++)
         {
             yield return new WaitForSeconds(1);
             FindObjectOfType<UiManager>().TimerCountDown();
         }
-
-
         }
+
+        bool EndRound(){
+           if(FindObjectOfType<SpawnManager>().spawnedUnits.Count < 1)
+           {
+            return true;
+           }
+           else{
+           return false;
+           }
+        }
+
         public void SetObjectTo(GameObject tower){
             SetGameState(GameState.Building);
             CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
@@ -78,7 +98,14 @@ public class GameManager : MonoBehaviour{
         {
         int amount = unit.GetComponent<Unit>().unitDescirption.goldRevarde;
         KillEvent?.Invoke(amount);
-    }
+
+        if(EndRound()){
+          OnRoundEndEvent?.Invoke();
+          FindObjectOfType<UiManager>().counter = 20;
+          StartCoroutine(StartCounter());
+          StartCoroutine(ContinueGame());
+        }
+        }
 
 
 }
