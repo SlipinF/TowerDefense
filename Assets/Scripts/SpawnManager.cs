@@ -6,10 +6,8 @@ using System;
 public class SpawnManager : MonoBehaviour
 {
     public event Action OnSpawnEvent;
+    public event Action OnLastUnitSpawned;
     public event Action OnLastRoundFinished;
-
-    [SerializeField]
-    GameObject[] unitsToSpawn;
 
     [SerializeField]
     LevelObject[] arrayOfLevels;
@@ -17,7 +15,7 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> spawnedUnits;
     public GameObject startPoint;
     GameObject copy;
-    int currentLevel = 1;
+    int currentLevel = 0;
 
     public void OnGameBegon()
     {
@@ -32,17 +30,21 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        foreach (var unit in arrayOfLevels[currentLevel].enemies)
+        if(currentLevel <= arrayOfLevels.Length)
         {
-            yield return new WaitForSecondsRealtime(0.5f);
-            copy = Instantiate(unit, startPoint.transform.position, Quaternion.identity);
-            spawnedUnits.Add(copy);
+            foreach (var unit in arrayOfLevels[currentLevel].enemies)
+            {
+                yield return new WaitForSecondsRealtime(0.5f);
+                copy = Instantiate(unit, startPoint.transform.position, Quaternion.identity);
+                spawnedUnits.Add(copy);
+            }
         }
+        OnLastUnitSpawned?.Invoke();
     }
 
     void EnumarateVariables(){
         currentLevel++;
-        if(currentLevel > arrayOfLevels.Length){
+        if(currentLevel >= arrayOfLevels.Length){
           OnLastRoundFinished?.Invoke();
         }
     }

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour{
     public event Action<int> KillEvent;
     public event Action OnRoundEndEvent;
 
+    bool allUnitsSpawned = false;
+
     [SerializeField]
     GameObject tower;
 
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour{
     currentState = GameState.Default;
     StartCoroutine(BeginGame());
     StartCoroutine(StartCounter());
-
+    FindObjectOfType<SpawnManager>().OnLastUnitSpawned += SetUnitBool;
     }
     private void Update(){
         if(CopyobjectToBuild == null){
@@ -99,13 +101,18 @@ public class GameManager : MonoBehaviour{
         int amount = unit.GetComponent<Unit>().unitDescirption.goldRevarde;
         KillEvent?.Invoke(amount);
 
-        if(EndRound()){
+        if(EndRound() && allUnitsSpawned)
+        {
+          StopAllCoroutines();
           OnRoundEndEvent?.Invoke();
           FindObjectOfType<UiManager>().counter = 20;
           StartCoroutine(StartCounter());
           StartCoroutine(ContinueGame());
+            allUnitsSpawned = false;
         }
         }
-
+    void SetUnitBool(){
+        allUnitsSpawned = true;
+    }
 
 }

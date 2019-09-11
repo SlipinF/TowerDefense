@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BuildingManager : MonoBehaviour
         if(Tower != null){
          Tower.transform.position = Tile.transform.position;
          Tower.transform.SetParent(Tile.transform);
+         Tower.GetComponent<BoxCollider>().enabled = true;
+         Tower.GetComponent<NavMeshObstacle>().enabled = true;
         }
     }
 
