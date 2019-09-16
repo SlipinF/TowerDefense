@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   attackDamage: 4
-  health: 10
+  health: 50
   goldRevarde: 20
-  speed: 10
-  armorType: 0
+  speed: 7
+  armorType: 1

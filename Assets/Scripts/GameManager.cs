@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour{
 
         public void SetObjectTo(GameObject tower){
             SetGameState(GameState.Building);
-            CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+            CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0,5,0), Quaternion.identity);
         }
 
         public static void SetGameState(GameState state){

@@ -10,7 +10,10 @@ public class TowerLogic : MonoBehaviour
     public GameObject bullet;
     GameObject copy;
 
-  
+    [SerializeField]
+    GameObject towerHead;
+
+
 
     public void BeginLogic()
     {
@@ -23,6 +26,10 @@ public class TowerLogic : MonoBehaviour
         if(unitToShootAt == null)
         {
          ChooseUnitToShoot();
+        }
+        else
+        {
+            RotatTowardsUnit(towerHead,unitToShootAt);
         }
 
     }
@@ -62,6 +69,14 @@ public class TowerLogic : MonoBehaviour
             unitToShootAt = testArray[UnityEngine.Random.Range(0, testArray.Length)];
         }       
     }
+
+    void RotatTowardsUnit(GameObject towerHead,GameObject target)
+    {
+        towerHead.transform.LookAt(target.transform);
+    }
+
+
+
 
     public bool IsEnemyTrue()
     {

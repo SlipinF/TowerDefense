@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum ArmorType {Light,Heavy,AntyMagic}
+public enum ArmorType {Light,Medium,Heavy}
 
 
 [CreateAssetMenu(fileName = "New Unit", menuName = "Units")]

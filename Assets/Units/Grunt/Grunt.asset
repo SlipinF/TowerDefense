@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Basic Unity
   icon: {fileID: 0}
   attackDamage: 3
-  health: 50
+  health: 25
   goldRevarde: 5
   speed: 3
   armorType: 0

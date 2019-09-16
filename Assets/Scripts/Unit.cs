@@ -17,6 +17,8 @@ public class Unit : MonoBehaviour
     private void Awake()
     {
         finishPoint = GameObject.FindGameObjectWithTag("Finish");
+        agent.speed = unitDescirption.speed;
+
     }
 
     private void Start()
@@ -27,7 +29,8 @@ public class Unit : MonoBehaviour
 
     public void DamageUnit(int damage)
     {
-        clone.health -= damage;
+        clone.health -= (int)CalculateResistance(damage, unitDescirption.armorType);
+
         if (clone.health <= 0)
         {
             OnDeathEvent?.Invoke();
@@ -43,6 +46,26 @@ public class Unit : MonoBehaviour
         {
             DamageUnit(other.GetComponent<Bullet>().damage);
         }
+    }
+
+    float CalculateResistance(int damage,ArmorType armorType){
+
+        float finalValue = 0;
+        switch (armorType)
+        {
+            case ArmorType.Light:
+                finalValue = damage * 1f;
+                return finalValue;
+            case ArmorType.Medium:
+                finalValue = damage * 0.85f;
+                return finalValue;
+            case ArmorType.Heavy:
+                finalValue = damage * 0.5f;
+                return finalValue;
+            default:
+                break;
+        }
+        return finalValue;
     }
 
 }

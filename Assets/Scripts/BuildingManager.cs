@@ -13,7 +13,7 @@ public class BuildingManager : MonoBehaviour
 
     void Build(GameObject Tower,GameObject Tile){
         if(Tower != null){
-         Tower.transform.position = Tile.transform.position;
+         Tower.transform.position = Tile.transform.position + new Vector3(0,0.5f,0);
          Tower.transform.SetParent(Tile.transform);
          Tower.GetComponent<BoxCollider>().enabled = true;
          Tower.GetComponent<NavMeshObstacle>().enabled = true;
