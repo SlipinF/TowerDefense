@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72892824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0.04, z: 4.45}
+  m_LocalPosition: {x: 4.5, y: 0, z: 4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1566,8 +1566,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.3504361, g: 0.5578624, b: 0.7075472, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1583,8 +1583,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1607,13 +1607,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.5560007, y: -0, z: -0, w: 0.8311818}
-  m_LocalPosition: {x: 5.43, y: 8.4, z: -0.25}
+  m_LocalRotation: {x: 0.27984518, y: -0.3647056, z: 0.11591566, w: 0.88047725}
+  m_LocalPosition: {x: 14.54, y: 10.49, z: -5.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 67.559006, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.264, y: -45, z: 0}
 --- !u!1 &976328843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee36db8b07ef244086b1bf58b2c665f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 517109454318435368, guid: 75ac660c7d90d9e47ab7244405a5f1cb, type: 3}
+  tile: {fileID: 4113199337499919729, guid: 45939aff197cd1c42b012805436916db, type: 3}
 --- !u!4 &1123218906
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,7 +2400,7 @@ MonoBehaviour:
         m_MethodName: SetObjectTo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2460211552132987012, guid: 137cee18a195b0f45853ca96b77bab76,
+          m_ObjectArgument: {fileID: 3334898397473850909, guid: fe3ff25e0773a9945a0f346c835dfaa8,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0

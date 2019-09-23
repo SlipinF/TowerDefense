@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour{
 
             if (Physics.Raycast(ray, out hit))
             {
-                CopyobjectToBuild.transform.position = new Vector3(hit.point.x,0, hit.point.z);
+                CopyobjectToBuild.transform.position = new Vector3(hit.point.x,1, hit.point.z);
             }
         }
 
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour{
 
         public void SetObjectTo(GameObject tower){
             SetGameState(GameState.Building);
-            CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0,5,0), Quaternion.identity);
+            CopyobjectToBuild = Instantiate(tower, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
         }
 
         public static void SetGameState(GameState state){

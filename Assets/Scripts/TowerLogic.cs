@@ -14,6 +14,10 @@ public class TowerLogic : MonoBehaviour
     GameObject towerHead;
 
 
+    [SerializeField]
+    public float damping;
+
+
 
     public void BeginLogic()
     {
@@ -34,12 +38,14 @@ public class TowerLogic : MonoBehaviour
 
     }
 
+
+
     IEnumerator Shoot()
     {
         while(true)
         {
             yield return new WaitForSeconds(1);
-            copy = Instantiate(bullet, this.transform.position, Quaternion.identity);
+            copy = Instantiate(bullet, towerHead.transform.position + new Vector3(0,1,0), Quaternion.identity);
             copy.GetComponent<Bullet>().ReciveTarget(unitToShootAt);
             copy.GetComponent<Bullet>().ReciveDamageValue(towerType.attackDamage);
         }
@@ -72,7 +78,10 @@ public class TowerLogic : MonoBehaviour
 
     void RotatTowardsUnit(GameObject towerHead,GameObject target)
     {
-        towerHead.transform.LookAt(target.transform);
+        towerHead.transform.LookAt(target.transform.position);
+        Vector3 eulerAngles = towerHead.transform.rotation.eulerAngles;
+        eulerAngles = new Vector3(0, eulerAngles.y + 90, 0);
+        towerHead.transform.rotation = Quaternion.Euler(eulerAngles);
     }
 
 
