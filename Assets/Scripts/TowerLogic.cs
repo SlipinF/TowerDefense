@@ -13,12 +13,6 @@ public class TowerLogic : MonoBehaviour
     [SerializeField]
     GameObject towerHead;
 
-
-    [SerializeField]
-    public float damping;
-
-
-
     public void BeginLogic()
     {
         FindObjectOfType<SpawnManager>().OnSpawnEvent += ChooseUnitToShoot;
@@ -45,7 +39,7 @@ public class TowerLogic : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1);
-            copy = Instantiate(bullet, towerHead.transform.position + new Vector3(0,1,0), Quaternion.identity);
+            copy = Instantiate(bullet, towerHead.transform.position, Quaternion.identity);
             copy.GetComponent<Bullet>().ReciveTarget(unitToShootAt);
             copy.GetComponent<Bullet>().ReciveDamageValue(towerType.attackDamage);
         }

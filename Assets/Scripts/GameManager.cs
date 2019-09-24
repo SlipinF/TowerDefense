@@ -108,11 +108,31 @@ public class GameManager : MonoBehaviour{
           FindObjectOfType<UiManager>().counter = 20;
           StartCoroutine(StartCounter());
           StartCoroutine(ContinueGame());
+          allUnitsSpawned = false;
+        }
+        }
+
+
+        public void OnUnitReachGoal()
+        {
+            if(EndRound() && allUnitsSpawned)
+            {
+            StopAllCoroutines();
+            OnRoundEndEvent?.Invoke();
+            FindObjectOfType<UiManager>().counter = 20;
+            StartCoroutine(StartCounter());
+            StartCoroutine(ContinueGame());
             allUnitsSpawned = false;
+            }
         }
-        }
+        
     void SetUnitBool(){
         allUnitsSpawned = true;
+    }
+
+    void MobEnteredTrigger()
+    {
+
     }
 
 }

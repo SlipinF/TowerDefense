@@ -46,6 +46,14 @@ public class Unit : MonoBehaviour
         {
             DamageUnit(other.GetComponent<Bullet>().damage);
         }
+
+        if(other.tag =="Finish")
+        {
+            Player.ChangeHealth(unitDescirption.attackDamage);
+            FindObjectOfType<SpawnManager>().RemoveDeadUnitFromList(gameObject);
+            FindObjectOfType<GameManager>().OnUnitReachGoal();
+            Destroy(gameObject);
+        }
     }
 
     float CalculateResistance(int damage,ArmorType armorType){

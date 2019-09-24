@@ -16,7 +16,13 @@ public class UiManager : MonoBehaviour
     GameObject endScreen;
 
     [SerializeField]
+    TextMeshProUGUI healthText;
+
+    [SerializeField]
     TextMeshProUGUI timer;
+
+    [SerializeField]
+    GameObject LooseScreen;
     public int counter = 20;
 
     void Start()
@@ -25,6 +31,9 @@ public class UiManager : MonoBehaviour
         goldAmount.text = Player.gold.ToString();
         timer.text = counter.ToString();
         FindObjectOfType<SpawnManager>().OnLastRoundFinished += DisplayEndScreen;
+        Player.PlayerDiedEvent += DisplayDeathScreen;
+        healthText.text = Player.health.ToString();
+        LooseScreen.SetActive(false);
     }
 
     void SetGoldAmount(int gold)
@@ -63,4 +72,19 @@ public class UiManager : MonoBehaviour
     {
      GameManager.SetGameState(GameState.Selling);
     }
+
+    public void DisplayDeathScreen()
+    {
+        LooseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void updateHealth(int health)
+    {
+        if(health < 0)
+        {
+            health = 0;
+        }
+        healthText.text = health.ToString();
+    }
+
 }
