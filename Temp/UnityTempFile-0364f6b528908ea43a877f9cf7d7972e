@@ -296,6 +296,8 @@
 /define:ENABLE_VSTU
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
+Assets\Scripts\BehaviorTemplets\AbleToAttack.cs
+Assets\Scripts\BehaviorTemplets\Damagable.cs
 Assets\Scripts\Board_Setup.cs
 Assets\Scripts\BuildingManager.cs
 Assets\Scripts\Bullet.cs
@@ -310,3 +312,8 @@ Assets\Scripts\TowerLogic.cs
 Assets\Scripts\UiManager.cs
 Assets\Scripts\Unit.cs
 Assets\Scripts\UnitObject.cs
+Assets\Scripts\UnitScripts\AntiMagic.cs
+Assets\Scripts\UnitScripts\Boss.cs
+Assets\Scripts\UnitScripts\Flying.cs
+Assets\Scripts\UnitScripts\Grunt.cs
+Assets\Scripts\UnitScripts\Speed.cs

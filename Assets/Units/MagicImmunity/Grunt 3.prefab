@@ -128,8 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e55157cce9fce84e98a6d0cf36efa76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1179781727562504097}
-  finishPoint: {fileID: 0}
   unitDescirption: {fileID: 11400000, guid: 28135c7ae68ec144e9fc1d57bae35a83, type: 2}
 --- !u!54 &8974959814995940726
 Rigidbody:

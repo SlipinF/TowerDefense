@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BehaviorTemplets\AbleToAttack.cs" />
+    <Compile Include="Assets\Scripts\BehaviorTemplets\Damagable.cs" />
     <Compile Include="Assets\Scripts\Board_Setup.cs" />
     <Compile Include="Assets\Scripts\BuildingManager.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
@@ -76,6 +78,11 @@
     <Compile Include="Assets\Scripts\UiManager.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitObject.cs" />
+    <Compile Include="Assets\Scripts\UnitScripts\AntiMagic.cs" />
+    <Compile Include="Assets\Scripts\UnitScripts\Boss.cs" />
+    <Compile Include="Assets\Scripts\UnitScripts\Flying.cs" />
+    <Compile Include="Assets\Scripts\UnitScripts\Grunt.cs" />
+    <Compile Include="Assets\Scripts\UnitScripts\Speed.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

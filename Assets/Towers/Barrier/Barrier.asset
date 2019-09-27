@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Barrier
   description: Wall
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a9a53a72f6ceac64390ac3865712d944, type: 3}
   attackDamage: 0
   health: 400
   cost: 30

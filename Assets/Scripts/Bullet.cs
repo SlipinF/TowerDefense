@@ -7,14 +7,24 @@ public class Bullet : MonoBehaviour
 {
     GameObject target;
     public int damage;
+    public bool sendFromMagicTower;
 
     public void ReciveTarget(GameObject unit)
     {
         target = unit;
     }
-    public void ReciveDamageValue(int damageFromTower)
+    public void ReciveDamageValue(int damageFromTower,string name)
     {
+        if(target != null)
+        {
+            if (name == "MagicTower" && target.tag == "AntiMagic")
+            {
+                damageFromTower /= 2;
+            }
+        }
         damage = damageFromTower;
+        Debug.Log(damage);
+        
     }
 
     private void Update()

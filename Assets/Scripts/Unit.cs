@@ -4,47 +4,60 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour , IDamagable , IAbleToAttack
 {
+    public int health {get; set;}
+    public int attackDamage {get; set;}
+    public int goldRevarde { get; set; }
+    public int speed { get; set; }
+
+    public ArmorType armorType { get; set; }
+
+    public Sprite Icon { get; set; }
+
+
     public event Action OnDeathEvent;
-
-    public NavMeshAgent agent;
-    public GameObject finishPoint;
-
     public UnitObject unitDescirption;
-    UnitObject clone;
+
+    NavMeshAgent agent;
+    GameObject finishPoint;
 
     private void Awake()
     {
-        finishPoint = GameObject.FindGameObjectWithTag("Finish");
-        agent.speed = unitDescirption.speed;
-
+      agent = this.gameObject.GetComponent<NavMeshAgent>();
+      finishPoint = GameObject.FindGameObjectWithTag("Finish");
     }
 
     private void Start()
     {
-     clone = Instantiate(unitDescirption);
-     agent.SetDestination(finishPoint.transform.position);
+        ApplyScriptibleObjectValues();
+        agent.speed = speed;
+        agent.SetDestination(finishPoint.transform.position);
     }
 
-    public void DamageUnit(int damage)
+    public virtual void GetDamaged(int damage)
     {
-        clone.health -= (int)CalculateResistance(damage, unitDescirption.armorType);
+        health -= (int)CalculateResistance(damage, unitDescirption.armorType);
 
-        if (clone.health <= 0)
-        {
+            if(health <= 0){
             OnDeathEvent?.Invoke();
             FindObjectOfType<SpawnManager>().RemoveDeadUnitFromList(gameObject);
             FindObjectOfType<GameManager>().OnKillMethod(gameObject);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
+
+    public virtual void Attack()
+    {
+
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bullet")
         {
-            DamageUnit(other.GetComponent<Bullet>().damage);
+            GetDamaged(other.GetComponent<Bullet>().damage);
         }
 
         if(other.tag =="Finish")
@@ -56,7 +69,7 @@ public class Unit : MonoBehaviour
         }
     }
 
-    float CalculateResistance(int damage,ArmorType armorType){
+   public virtual float CalculateResistance(int damage,ArmorType armorType){
 
         float finalValue = 0;
         switch (armorType)
@@ -75,5 +88,14 @@ public class Unit : MonoBehaviour
         }
         return finalValue;
     }
+   public virtual void  ApplyScriptibleObjectValues()
+   {
+        health = unitDescirption.health;
+        attackDamage = unitDescirption.attackDamage;
+        goldRevarde = unitDescirption.goldRevarde;
+        speed = unitDescirption.speed;
 
+        armorType = unitDescirption.armorType;
+        Icon = unitDescirption.icon;
+   }
 }

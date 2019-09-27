@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab452789b35cf824298189a8932a260b, type: 3}
   m_Name: MagicTower
   m_EditorClassIdentifier: 
-  name: ArrowTower
+  name: MagicTower
   description: Single target // infinite range // slow attack speed
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a9a53a72f6ceac64390ac3865712d944, type: 3}
   attackDamage: 60
   health: 70
   cost: 100

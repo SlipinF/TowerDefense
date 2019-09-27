@@ -41,7 +41,7 @@ public class TowerLogic : MonoBehaviour
             yield return new WaitForSeconds(1);
             copy = Instantiate(bullet, towerHead.transform.position, Quaternion.identity);
             copy.GetComponent<Bullet>().ReciveTarget(unitToShootAt);
-            copy.GetComponent<Bullet>().ReciveDamageValue(towerType.attackDamage);
+            copy.GetComponent<Bullet>().ReciveDamageValue(towerType.attackDamage,towerType.name);
         }
     }
 
