@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7770838065124941452}
   - component: {fileID: 5821818463171607304}
   - component: {fileID: 6028029001551747062}
-  - component: {fileID: 8068050832286265521}
+  - component: {fileID: -5221959348092608894}
+  - component: {fileID: 474945178675262327}
   m_Layer: 0
   m_Name: turretbase3LOW Variant 1
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3334898397473850909}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8844509, y: 0.5642414, z: 3.8387504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8844509, y: 0.264, z: 3.8387504}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 8675819150703666696}
@@ -110,7 +111,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &8068050832286265521
+--- !u!114 &-5221959348092608894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,13 +120,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 3334898397473850909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2351c1e8b1947d64592e40983e46f26f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5707a33ced8378e49adcec6874d535c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerType: {fileID: 11400000, guid: 6d39a13dc2d7574498620b0707c2868a, type: 2}
   bullet: {fileID: 2147353318061279956, guid: 4b1f10ba577ef754c8adbfb1776c6368, type: 3}
   towerHead: {fileID: 4440165069985027065}
-  damping: 1
+--- !u!114 &474945178675262327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334898397473850909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5678181e29a541746bb5e2997e023106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToAlgine: {fileID: 7407257995061509984, guid: 98eba08d6dd04b7429918eac2672f3a5,
+    type: 3}
 --- !u!1 &3554915709999251433
 GameObject:
   m_ObjectHideFlags: 0

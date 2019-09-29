@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4529618078750124526}
   - component: {fileID: 4529618078750124525}
   - component: {fileID: 4529618078750124524}
-  - component: {fileID: 5225697176301420089}
   - component: {fileID: -3483596505871294889}
+  - component: {fileID: -4274081764047750030}
   m_Layer: 2
   m_Name: CannonTower
   m_TagString: Untagged
@@ -93,20 +93,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5225697176301420089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4529618078750124523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2351c1e8b1947d64592e40983e46f26f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerType: {fileID: 11400000, guid: 6d39a13dc2d7574498620b0707c2868a, type: 2}
-  bullet: {fileID: 2147353318061279956, guid: 665f79d67adf91d40969981da814778b, type: 3}
 --- !u!208 &-3483596505871294889
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -123,3 +109,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &-4274081764047750030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4529618078750124523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5707a33ced8378e49adcec6874d535c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerType: {fileID: 11400000, guid: 6d39a13dc2d7574498620b0707c2868a, type: 2}
+  bullet: {fileID: 2147353318061279956, guid: 665f79d67adf91d40969981da814778b, type: 3}
+  towerHead: {fileID: 0}

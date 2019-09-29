@@ -23,7 +23,6 @@ public class Bullet : MonoBehaviour
             }
         }
         damage = damageFromTower;
-        Debug.Log(damage);
         
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 
-public class Unit : MonoBehaviour , IDamagable , IAbleToAttack
+public class Unit : MonoBehaviour , IDamagable , IAbleToAttack<int>
 {
     public int health {get; set;}
     public int attackDamage {get; set;}
@@ -47,9 +47,9 @@ public class Unit : MonoBehaviour , IDamagable , IAbleToAttack
         }
     }
 
-    public virtual void Attack()
+    public virtual int Attack()
     {
-
+        return 0;
     }
 
 

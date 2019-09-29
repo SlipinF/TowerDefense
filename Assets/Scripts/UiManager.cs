@@ -71,6 +71,7 @@ public class UiManager : MonoBehaviour
     public void SellButtonLogic()
     {
      GameManager.SetGameState(GameState.Selling);
+     FindObjectOfType<GameManager>().OnSellMethod(this.gameObject);
     }
 
     public void DisplayDeathScreen()

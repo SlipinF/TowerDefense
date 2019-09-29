@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class TowerLogic : MonoBehaviour
+public class TowerLogic : MonoBehaviour, IDamagable, IAbleToAttack<IEnumerator>
 {       
+   public int health {get; set;}
+   public int attackDamage {get; set;}
+
+
+
     public Tower towerType;
     GameObject unitToShootAt;
     public GameObject bullet;
@@ -13,10 +18,10 @@ public class TowerLogic : MonoBehaviour
     [SerializeField]
     GameObject towerHead;
 
-    public void BeginLogic()
+    public virtual void BeginLogic()
     {
         FindObjectOfType<SpawnManager>().OnSpawnEvent += ChooseUnitToShoot;
-        StartCoroutine(Shoot());
+        StartCoroutine(Attack());
     }
 
     void Update()
@@ -29,12 +34,9 @@ public class TowerLogic : MonoBehaviour
         {
             RotatTowardsUnit(towerHead,unitToShootAt);
         }
-
     }
 
-
-
-    IEnumerator Shoot()
+   public virtual IEnumerator Attack()
     {
         while(true)
         {
@@ -78,8 +80,15 @@ public class TowerLogic : MonoBehaviour
         towerHead.transform.rotation = Quaternion.Euler(eulerAngles);
     }
 
+    public virtual void GetDamaged(int damage)
+    {
+        health -= damage;
 
-
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     public bool IsEnemyTrue()
     {

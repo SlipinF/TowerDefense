@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAbleToAttack 
+public interface IAbleToAttack<T>
 {
   int attackDamage {get; set;}
 
 
-  void Attack();   
+  T Attack();   
 }
