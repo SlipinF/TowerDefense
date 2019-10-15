@@ -6,6 +6,7 @@ public enum GameState{Default,Building,Selling}
 
 public class GameManager : MonoBehaviour{
 
+    
     public static GameState currentState;
     public static GameObject objectToBuild;
     static GameObject CopyobjectToBuild;
