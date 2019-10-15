@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Board_Setup : MonoBehaviour
 {
-    [SerializeField]
+   
+   [SerializeField]
     private GameObject tile;
     GameObject Copy;
 
@@ -15,12 +16,14 @@ public class Board_Setup : MonoBehaviour
     }
     void InstatiateTiles(GameObject[,] ArrayOfTiles)
     {
-        int CurrentRow = 0;
+       
+       int CurrentRow = 0;
         int CurrentCol = 0;
                 
         foreach (var cor in ArrayOfTiles)
         {
-            Copy = Instantiate(tile, new Vector3(CurrentRow, 0, CurrentCol),Quaternion.identity.normalized,gameObject.transform);
+           
+           Copy = Instantiate(tile, new Vector3(CurrentRow, 0, CurrentCol),Quaternion.identity.normalized,gameObject.transform);
             CurrentCol++;
 
             if (CurrentCol >= ArrayOfTiles.GetLength(0))
