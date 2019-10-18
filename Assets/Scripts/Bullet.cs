@@ -6,6 +6,7 @@ using System;
 public class Bullet : MonoBehaviour
 {
     GameObject target;
+    
     public int damage;
     public bool sendFromMagicTower;
 
@@ -21,7 +22,8 @@ public class Bullet : MonoBehaviour
             {
                 damageFromTower /= 2;
             }
-        }
+      
+      }
         damage = damageFromTower;
         
     }
@@ -36,7 +38,8 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public static Vector3 Lerp(Vector3 start, Vector3 finish, float percentage)
+   
+   public static Vector3 Lerp(Vector3 start, Vector3 finish, float percentage)
     {
         //Make sure percentage is in the range [0.0, 1.0]
         percentage = Mathf.Clamp01(percentage);
@@ -50,7 +53,8 @@ public class Bullet : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other)
+   
+   void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Unit")
         {
