@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     GameObject copy;
     int currentLevel = 0;
 
+
+
     public void OnGameBegon()
     {
         StartCoroutine(SpawnWave());
@@ -41,6 +43,8 @@ public class SpawnManager : MonoBehaviour
         }
         OnLastUnitSpawned?.Invoke();
     }
+
+
 
     void EnumarateVariables(){
         currentLevel++;
