@@ -8,7 +8,6 @@ public class SpawnManager : MonoBehaviour
     public event Action OnSpawnEvent;
     public event Action OnLastUnitSpawned;
     public event Action OnLastRoundFinished;
-
     [SerializeField]
     LevelObject[] arrayOfLevels;
 
