@@ -5,12 +5,6 @@ using System;
 public class Player : MonoBehaviour
 {
     public static event Action PlayerDiedEvent;
-
-    
-
-
-
-
     public static int health = 100;
     public static int gold = 100;
     public static int level = 1;
