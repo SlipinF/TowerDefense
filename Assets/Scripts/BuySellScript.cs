@@ -14,8 +14,6 @@ public class BuySellScript : MonoBehaviour
         FindObjectOfType<GameManager>().SellEvent += ReciveGold;
         FindObjectOfType<GameManager>().KillEvent += ReciveGoldFromKill;
     }
-
-
     void PayGold(GameObject Tower, GameObject Tile)
     {
         tower = (Tower)Tower.GetComponent<TowerLogic>().towerType;
