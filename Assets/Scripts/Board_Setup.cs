@@ -18,6 +18,8 @@ public class Board_Setup : MonoBehaviour
     {
        
        int CurrentRow = 0;
+
+
         int CurrentCol = 0;
                 
         foreach (var cor in ArrayOfTiles)
