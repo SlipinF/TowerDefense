@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public void ReciveTarget(GameObject unit)
     {
         target = unit;
+
     }
     public void ReciveDamageValue(int damageFromTower,string name)
     {
