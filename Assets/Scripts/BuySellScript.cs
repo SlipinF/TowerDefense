@@ -7,6 +7,8 @@ public class BuySellScript : MonoBehaviour
 {
     private Tower tower;
 
+
+
     public event Action<int> PayEvent;
     private void Start()
     {
