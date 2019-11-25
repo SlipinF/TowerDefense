@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        
         if (target != null)
             this.transform.position = Lerp(this.transform.position, target.transform.position, 0.1f);
         else
