@@ -8,7 +8,6 @@ public class BuildingManager : MonoBehaviour
     void Start(){
         FindObjectOfType<GameManager>().BuildEvent += Build;
         FindObjectOfType<GameManager>().SellEvent += DestroyTower;
-
     }
 
     void Build(GameObject Tower,GameObject Tile){
