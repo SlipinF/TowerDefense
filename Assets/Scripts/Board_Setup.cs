@@ -24,7 +24,7 @@ public class Board_Setup : MonoBehaviour
                 
         foreach (var cor in ArrayOfTiles)
         {
-           
+          
            Copy = Instantiate(tile, new Vector3(CurrentRow, 0, CurrentCol),Quaternion.identity.normalized,gameObject.transform);
             CurrentCol++;
 
