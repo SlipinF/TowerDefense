@@ -15,10 +15,8 @@ public class Board_Setup : MonoBehaviour
     }
     void InstatiateTiles(GameObject[,] ArrayOfTiles)
     {
-       
+      
        int CurrentRow = 0;
-
-
         int CurrentCol = 0;
                 
         foreach (var cor in ArrayOfTiles)
