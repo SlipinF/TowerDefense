@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Board_Setup : MonoBehaviour
-{
-   
+{ 
    [SerializeField]
     private GameObject tile;
     GameObject Copy;
