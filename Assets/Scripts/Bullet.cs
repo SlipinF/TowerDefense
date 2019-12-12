@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     
     public int damage;
     public bool sendFromMagicTower;
-
     public void ReciveTarget(GameObject unit)
     {
         target = unit;
