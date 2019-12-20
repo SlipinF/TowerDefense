@@ -34,5 +34,7 @@ public class Board_Setup : MonoBehaviour
                 CurrentRow = 0;
             }
         }
-    }
+
+
+   }
 }
