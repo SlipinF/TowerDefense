@@ -13,6 +13,9 @@ public class Bullet : MonoBehaviour
     {
         target = unit;
 
+
+
+
     }
     public void ReciveDamageValue(int damageFromTower,string name)
     {
