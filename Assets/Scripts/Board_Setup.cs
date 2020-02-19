@@ -13,8 +13,7 @@ public class Board_Setup : MonoBehaviour
         InstatiateTiles(TileMatrix);
     }
     void InstatiateTiles(GameObject[,] ArrayOfTiles)
-    {
-      
+    {      
        int CurrentRow = 0;
         int CurrentCol = 0;
                 
